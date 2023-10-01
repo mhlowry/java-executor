@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: axum-java-executor
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: axum-java-executor
+  template:
+    metadata:
+      labels:
+        app: axum-java-executor
+    spec:
+      containers:
+      - name: axum-java-executor
+        image: 337467262924.dkr.ecr.us-east-1.amazonaws.com/axum-java-executor:latest
+        ports:
+        - containerPort: 3000
